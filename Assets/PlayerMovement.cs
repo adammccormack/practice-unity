@@ -4,7 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody rb;
 
-    public float forwardsForce = 500f;
+    public float forwardsForce = 2000f;
     public float sidewaysForce = 500f;
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (Input.GetKey("s"))
-        {
+        { 
             rb.AddForce(0, 0, -forwardsForce * Time.deltaTime);
         }
 
@@ -29,11 +29,17 @@ public class PlayerMovement : MonoBehaviour
         // everything in the code block is executed only when player
         // presses 'd'.
 
+
+
         if (Input.GetKey("d"))
         {
             // Only executed if condition is met
-             
-            rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0);
+
+
+            // the movement left and right feels sluggish as force builds up over time, and then to compensate and change direction it takes time to build up the force.
+            // So we use ForceMode.VelocityChange to specify in which way we should add a force. We use VelocityChange, the default is force.
+            // Note when in the editor we have to reduce the force because it is more sensitive now. 
+            rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
 
         }
 
@@ -41,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         {
             
             // to make it go the opposite direction on x axis we use '-'
-            rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0);
+            rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
 
         }
     }

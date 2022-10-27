@@ -29,6 +29,7 @@ public class PlayerCollision : MonoBehaviour
         //if (collisionInfo.collider.name == "Obstacle")
         //{
         //    Debug.Log("We hit it!");
+
         //}
 
         //TAGS
@@ -38,8 +39,9 @@ public class PlayerCollision : MonoBehaviour
 
 
         if (collisionInfo.collider.tag == "Obstacle")
-        {
-            Debug.Log("Mother Fucking HIT");
+        {   // we made a reference in player collision script called movement, then dragged and dropped playermovement.cs into it so we can do the code below. Which means
+            // when the player collides with any obstacle in the tag, movement will be disabled. 
+            movement.enabled = false;
         }
     }
 
