@@ -1,5 +1,8 @@
 using UnityEngine;
 
+// In here we keep track of player position and the forces we want to add when we want him to move.
+
+
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody rb;
@@ -49,6 +52,11 @@ public class PlayerMovement : MonoBehaviour
             // to make it go the opposite direction on x axis we use '-'
             rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
 
+        }
+
+        if (rb.position.y < -2f)
+        {
+            FindObjectOfType<GameManager>().GameOver();
         }
     }
 }

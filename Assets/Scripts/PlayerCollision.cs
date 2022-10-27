@@ -12,7 +12,7 @@ public class PlayerCollision : MonoBehaviour
     // To make player stop moving when colliding, we can go in through this script and turn of the PlayerMovement.cs script, we do this buy having a reference to the
     // player movement script.
 
-    public PlayerMovement movement;
+    public PlayerMovement movement; // ref to playerMovement script.
 
     // first Collission parameter lets Unity know we want to gather info about the collison, and then we need to give that info a name 'collisionInfo'
      
@@ -42,6 +42,8 @@ public class PlayerCollision : MonoBehaviour
         {   // we made a reference in player collision script called movement, then dragged and dropped playermovement.cs into it so we can do the code below. Which means
             // when the player collides with any obstacle in the tag, movement will be disabled. 
             movement.enabled = false;
+            FindObjectOfType<GameManager>().GameOver();
+
         }
     }
 
