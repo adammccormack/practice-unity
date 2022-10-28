@@ -22,7 +22,12 @@ public class GameManager : MonoBehaviour
     bool gameEnded = false;
 
     // We set the restartDelay to a variable so that it is accessible in the unity editor and we can change it from one place. 
-    public float restartDelay = 1f; 
+    public float restartDelay = 1f;
+
+    public void LevelComplete()
+    {
+        Debug.Log("YA WON");
+    }
 
     public void GameOver ()
     {
@@ -45,4 +50,5 @@ public class GameManager : MonoBehaviour
         // 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Loads level with the given .name, .GetActiveScene gets the current level we're in. 
     }
+
 }

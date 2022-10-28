@@ -39,7 +39,7 @@ public class PlayerCollision : MonoBehaviour
 
 
         if (collisionInfo.collider.tag == "Obstacle")
-        {   // we made a reference in player collision script called movement, then dragged and dropped playermovement.cs into it so we can do the code below. Which means
+        {   // we made a reference in player collision script to PlayerMovement script, then dragged and dropped playermovement.cs into it so we can do the code below. Which means
             // when the player collides with any obstacle in the tag, movement will be disabled. 
             movement.enabled = false;
             FindObjectOfType<GameManager>().GameOver();
