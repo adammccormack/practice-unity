@@ -7,10 +7,9 @@ public class EndTrigger : MonoBehaviour
 
     public GameManager gameManager;
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter(Collider other)
     {
         gameManager.LevelComplete();
-
     }
 
     // Whenever we hit our trigger we need to tell our gameManager to display some UI on the screen, to do that first we need a reference to

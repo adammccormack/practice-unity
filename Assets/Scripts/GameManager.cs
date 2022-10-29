@@ -24,9 +24,13 @@ public class GameManager : MonoBehaviour
     // We set the restartDelay to a variable so that it is accessible in the unity editor and we can change it from one place. 
     public float restartDelay = 1f;
 
-    public void LevelComplete()
-    {
-        Debug.Log("YA WON");
+    // We need to reference the UI 'Level Complete' to enable it when we complete the level. We name it levelCompleteUI;
+    public GameObject levelCompleteUI;
+
+
+    public void LevelComplete ()
+    {   // true or false to enable or disable the levelCompleteUI we are reference, ensure to drag and drop it in Unity.
+        levelCompleteUI.SetActive(true);
     }
 
     public void GameOver ()
@@ -39,16 +43,12 @@ public class GameManager : MonoBehaviour
         }
         
     }
-        
-    void RestartGame ()
+
+    void RestartGame()
     {
         // We restart the game by reloaind the scene below.
         // SceneManager.LoadScene("Level_01") // Level_01 is name of the scene we asked to load. however if we want to load the scene that is currently active
         // when you have multiple levels.
-
-
-        // 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Loads level with the given .name, .GetActiveScene gets the current level we're in. 
-    }
-
+     }
 }
