@@ -13,7 +13,7 @@ public class LevelComplete : MonoBehaviour
         // GetActiveScene gets scene we're currently on, and .buildIndex is the index we're currently on, then + 1 to set it to the next level.
         // In Unity we need to make sure there's always a next scene, when player beats the last level, make sure you create a level/scene that
         // congratulates the player. 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
                                  
     }
 }
